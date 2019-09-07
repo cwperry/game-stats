@@ -1,0 +1,9 @@
+.player-stats {
+  border: .2em solid black;
+  margin-bottom: .5em;
+  padding: .5em;
+}
+
+.player-stats h5 {
+  text-align: center;
+}
