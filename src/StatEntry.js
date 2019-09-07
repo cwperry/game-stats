@@ -75,9 +75,6 @@ class StatEntry extends Component {
                             <PlayerStats player={new Player("Kason Rotan", "40")}/>
                         </Col>
                     </Row>
-                    <Row>
-                        
-                    </Row> */}
                 </Container> 
             </div>
                
