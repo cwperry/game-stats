@@ -6,6 +6,8 @@ class Stats {
     this.goalsAgainst = 0;
     this.hustles = 0;
     this.hesitations = 0;
+    this.takeaways = 0;
+    this.giveaways = 0;
   }
 
   shotsOnGoalChanged = (value) => {
@@ -32,10 +34,17 @@ class Stats {
     this.hesitations = this.statChanged(this.hesitations, value);
   }
 
+  takeawaysChanged = (value) => {
+    this.takeaways = this.statChanged(this.takeaways, value);
+  }
+
+  giveawaysChanged = (value) => {
+    this.giveaways = this.statChanged(this.giveaways, value);
+  }
+
   statChanged = (stat, value) => {
     const tempStat = stat;
-    stat = (tempStat > -1) ? tempStat + value : tempStat;
-    stat = tempStat + value;
+    stat = (tempStat + value >= 0) ? tempStat + value : tempStat;
     return stat;
   }
 

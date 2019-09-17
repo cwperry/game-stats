@@ -30,6 +30,14 @@ class Player {
   handleHesitationsChanged = (value) => {
     this.stats.hesitationsChanged(value);
   }
+
+  handleTakeawaysChanged = (value) => {
+    this.stats.takeawaysChanged(value);
+  }
+
+  handleGiveawaysChanged = (value) => {
+    this.stats.giveawaysChanged(value);
+  }
 }
 
 export default Player;

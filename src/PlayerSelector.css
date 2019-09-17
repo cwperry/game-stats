@@ -1,20 +1,20 @@
-.player-stats {
+.player-selector {
   border: .2em solid black;
   margin-bottom: .5em;
   padding: .5em;
 }
 
-.player-stats .name {
-  font-size: 1.5em;
+.player-selector .name {
+  font-size: 1em;
   font-family: 'Graduate';
   text-align: center;
   color: #2c2c89;
 }
 
-.player-stats .number {
+.player-selector .number {
   font-family: 'Graduate';
-  font-size: 3em;
+  font-size: 2em;
   text-align: center;
   color: #ab322e;
   text-shadow: -2px 2px 0px #2c2c89;
-}
+}  
