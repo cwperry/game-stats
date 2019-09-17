@@ -1,24 +1,49 @@
 import React, { Component } from 'react';
-import Button from 'react-bootstrap/Button';
 import Badge from 'react-bootstrap/Badge'
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPlusSquare, faMinusSquare } from '@fortawesome/free-solid-svg-icons';
+
+import './StatButton.css';
 
 class StatButton extends Component {
 
-  handleStatClick = () => {
-    console.log("handleStatClick clicked");
-    this.props.onStatClick(1);
+  handlePlusClick = () => {
+    this.handleStatClick(1);
   }
 
-  determineVariant = () => {
-    console.log("variant for " + this.props.buttonText + " : " + this.props.variant);
-    return this.props.variant != null ? this.props.variant : "primary";
+  handleMinusClick = () => {
+    this.handleStatClick(-1);
+  }
+
+  handleStatClick = (value) => {
+    console.log("handleStatClick clicked");
+    this.props.onStatClick(value);
   }
 
   render() {
     return (
-      <Button variant={this.determineVariant()} onClick={this.handleStatClick}>
-        { this.props.buttonText } <Badge variant="light">{this.props.stat}</Badge>
-      </Button>
+      <div class="statbutton">
+        <Row noGutters="true">
+          <Col sm={5}>
+            <div class="button-title">
+              { this.props.buttonText }
+            </div>
+          </Col>
+          <Col md={3}>
+            <h1>
+              <Badge variant="light">{this.props.stat}</Badge>
+            </h1>
+          </Col>
+          <Col md={2}>
+            <FontAwesomeIcon icon={faPlusSquare} color="green" size="3x" onClick={this.handlePlusClick}/>
+          </Col>
+          <Col md={2}>
+            <FontAwesomeIcon icon={faMinusSquare} color="red" pull="left" size="3x" onClick={this.handleMinusClick}/>
+          </Col>
+        </Row>
+      </div>
     );
   }
 }

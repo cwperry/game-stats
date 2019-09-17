@@ -1,5 +1,5 @@
-.stat-button {
-  border: .1em solid black;
-  font-size: 1em;
-  text-align: center;
+.statbutton .button-title {
+  font-size: 1.2em;
+  font-weight: bold;
+  padding: .5em;
 }
