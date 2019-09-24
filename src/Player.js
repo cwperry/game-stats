@@ -1,9 +1,10 @@
 import Stats from './Stats';
 
 class Player {
-  constructor(name, number) {
+  constructor(name, number, position) {
     this.name = name;
     this.number = number;
+    this.position = position;
     this.stats = new Stats();
   } 
 
