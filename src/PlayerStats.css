@@ -12,6 +12,7 @@
 }
 
 .player-stats .number {
+  margin-bottom: .5em; 
   font-family: 'Graduate';
   font-size: 3em;
   text-align: center;

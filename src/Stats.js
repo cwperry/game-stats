@@ -48,6 +48,21 @@ class Stats {
     return stat;
   }
 
+  performance = (statWeights) => {
+    // console.log("Stats.performance.statWeights = " + JSON.stringify(statWeights));
+    var performance = this.shotsOnGoal * statWeights.shotsOnGoal +
+      this.missedShots * statWeights.missedShots +
+      this.goalsFor * statWeights.goalsFor +
+      this.goalsAgainst * statWeights.goalsAgainst +
+      this.hustles * statWeights.hustles +
+      this.hesitations * statWeights.hesitations +
+      this.takeaways * statWeights.takeaways +
+      this.giveaways * statWeights.giveaways;
+
+      console.log("performance = " + performance);
+      return performance;
+  }
+
 }
 
 export default Stats;

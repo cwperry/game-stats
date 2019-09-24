@@ -11,10 +11,39 @@
   color: #2c2c89;
 }
 
+ 
+
+.player-selector .number-container {
+  display: inline-block;
+  height: 3em;
+  
+}
+
 .player-selector .number {
+  padding-left: 1.7em;
   font-family: 'Graduate';
   font-size: 2em;
   text-align: center;
   color: #ab322e;
   text-shadow: -2px 2px 0px #2c2c89;
-}  
+}
+
+.player-selector .performance-1x {
+  text-align: center;
+  margin-left: 1.25em;
+  font-size: 1em;
+  margin-bottom: .25em;
+}
+
+.player-selector .performance-2x {
+  text-align: center;
+  margin-left: .45em;
+  font-size: 2em;
+  /* padding-top: .1em; */
+}
+
+.player-selector .performance-3x {
+  text-align: center;
+  margin-left: .2em;
+  font-size: 3em;
+}
