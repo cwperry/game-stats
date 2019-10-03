@@ -1,12 +1,13 @@
 import Stats from './Stats';
 
 class Player {
-  constructor(name, number, position) {
+  constructor(name, number, position, lineNumber) {
     this.name = name;
     this.number = number;
     this.position = position;
+    this.lineNumber = lineNumber;
     this.stats = new Stats();
-  } 
+  }
 
   handleShotsChanged = (value) => {
     this.stats.shotsOnGoalChanged(value);
@@ -39,6 +40,8 @@ class Player {
   handleGiveawaysChanged = (value) => {
     this.stats.giveawaysChanged(value);
   }
+
+  performance = (statWeights) => this.stats.performance(statWeights);
 }
 
 export default Player;
