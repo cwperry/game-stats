@@ -29,7 +29,7 @@ class Stats {
   hustlesChanged = (value) => {
     this.hustles = this.statChanged(this.hustles, value);
   }
-  
+
   hesitationsChanged = (value) => {
     this.hesitations = this.statChanged(this.hesitations, value);
   }
@@ -44,25 +44,17 @@ class Stats {
 
   statChanged = (stat, value) => {
     const tempStat = stat;
-    stat = (tempStat + value >= 0) ? tempStat + value : tempStat;
-    return stat;
+    return (tempStat + value >= 0) ? tempStat + value : tempStat;
   }
 
-  performance = (statWeights) => {
-    // console.log("Stats.performance.statWeights = " + JSON.stringify(statWeights));
-    var performance = this.shotsOnGoal * statWeights.shotsOnGoal +
-      this.missedShots * statWeights.missedShots +
-      this.goalsFor * statWeights.goalsFor +
-      this.goalsAgainst * statWeights.goalsAgainst +
-      this.hustles * statWeights.hustles +
-      this.hesitations * statWeights.hesitations +
-      this.takeaways * statWeights.takeaways +
-      this.giveaways * statWeights.giveaways;
-
-      console.log("performance = " + performance);
-      return performance;
-  }
-
+  performance = (statWeights) => this.shotsOnGoal * statWeights.shotsOnGoal
+      + this.missedShots * statWeights.missedShots
+      + this.goalsFor * statWeights.goalsFor
+      + this.goalsAgainst * statWeights.goalsAgainst
+      + this.hustles * statWeights.hustles
+      + this.hesitations * statWeights.hesitations
+      + this.takeaways * statWeights.takeaways
+      + this.giveaways * statWeights.giveaways;
 }
 
 export default Stats;
