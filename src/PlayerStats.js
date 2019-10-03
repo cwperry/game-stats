@@ -11,84 +11,72 @@ class PlayerStats extends Component {
   constructor(props) {
     super(props);
     this.handleStatChange = this.handleStatChange.bind(this);
-    const { player } = this.props;
-    this.state = {
-      player,
-    };
   }
 
   handleShotOnGoalClick = (value) => {
-    const { player } = this.state;
+    const { player } = this.props;
     const tempPlayer = player;
     tempPlayer.handleShotsChanged(value);
-    this.setState({ player: tempPlayer });
-    this.handleStatChange();
+    this.handleStatChange(tempPlayer);
   }
 
   handleMissedShotClick = (value) => {
-    const { player } = this.state;
+    const { player } = this.props;
     const tempPlayer = player;
     tempPlayer.handleMissedShotsChanged(value);
-    this.setState({ player: tempPlayer });
-    this.handleStatChange();
+    this.handleStatChange(tempPlayer);
   }
 
   handleGoalsForClick = (value) => {
-    const { player } = this.state;
+    const { player } = this.props;
     const tempPlayer = player;
     tempPlayer.handleGoalsForChanged(value);
-    this.setState({ player: tempPlayer });
-    this.handleStatChange();
+    this.handleStatChange(tempPlayer);
   }
 
   handleGoalsAgainstClick = (value) => {
-    const { player } = this.state;
+    const { player } = this.props;
     const tempPlayer = player;
     tempPlayer.handleGoalsAgainstChanged(value);
-    this.setState({ player: tempPlayer });
-    this.handleStatChange();
+    this.handleStatChange(tempPlayer);
   }
 
   handleHustlesClick = (value) => {
-    const { player } = this.state;
+    const { player } = this.props;
     const tempPlayer = player;
     tempPlayer.handleHustlesChanged(value);
-    this.setState({ player: tempPlayer });
-    this.handleStatChange();
+    this.handleStatChange(tempPlayer);
   }
 
   handleHesitationsClick = (value) => {
-    const { player } = this.state;
+    const { player } = this.props;
     const tempPlayer = player;
     tempPlayer.handleHesitationsChanged(value);
-    this.setState({ player: tempPlayer });
-    this.handleStatChange();
+    this.handleStatChange(tempPlayer);
   }
 
   handleTakeawaysClick = (value) => {
-    const { player } = this.state;
+    const { player } = this.props;
     const tempPlayer = player;
     tempPlayer.handleTakeawaysChanged(value);
-    this.setState({ player: tempPlayer });
-    this.handleStatChange();
+    this.handleStatChange(tempPlayer);
   }
 
   handleGiveawaysClick = (value) => {
-    const { player } = this.state;
+    const { player } = this.props;
     const tempPlayer = player;
     tempPlayer.handleGiveawaysChanged(value);
-    this.setState({ player: tempPlayer });
-    this.handleStatChange();
+    this.handleStatChange(tempPlayer);
   }
 
-  handleStatChange = () => {
+  handleStatChange = (player) => {
     const { onStatChange } = this.props;
-    const { player } = this.state;
     onStatChange(player);
   }
 
   render() {
-    const { player } = this.state;
+    const { player } = this.props;
+    console.log(`player = ${player.name}`);
     return (
       <div className="player-stats">
         <Container fluid="true">

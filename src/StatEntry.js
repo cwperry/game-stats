@@ -1,3 +1,4 @@
+/* eslint-disable react/no-array-index-key */
 import React, { Component } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -5,7 +6,6 @@ import Col from 'react-bootstrap/Col';
 
 import './StatEntry.css';
 
-// import PlayerStats from './PlayerStats';
 import PlayerSelector from './PlayerSelector';
 import Team from './Team';
 import Player from './Player';
@@ -15,20 +15,20 @@ class StatEntry extends Component {
   constructor() {
     super();
     const players = [
-      new Player('Wertz', '23', 'offense'),
-      new Player('Glover', '66', 'offense'),
-      new Player('Garrick', '64', 'offense'),
-      new Player('Kelton', '97', 'offense'),
-      new Player('Kazmierski', '10', 'offense'),
-      new Player('Krohn', '17', 'offense'),
-      new Player('Liu', '83', 'offense'),
-      new Player('Pandey', '47', 'offense'),
-      new Player('Perry', '30', 'offense'),
-      new Player('Gallagher', '3', 'defense'),
-      new Player('Johnson', '12', 'defense'),
-      new Player('Krasner', '41', 'defense'),
-      new Player('Berger', '4', 'defense'),
-      new Player('Rotan', '40', 'defense'),
+      new Player('Wertz', '23', 'offense', 1),
+      new Player('Glover', '66', 'offense', 1),
+      new Player('Garrick', '64', 'offense', 1),
+      new Player('Kelton', '97', 'offense', 2),
+      new Player('Kazmierski', '10', 'offense', 2),
+      new Player('Krohn', '17', 'offense', 3),
+      new Player('Liu', '83', 'offense', 3),
+      new Player('Pandey', '47', 'offense', 3),
+      new Player('Perry', '30', 'offense', 2),
+      new Player('Gallagher', '3', 'defense', 1),
+      new Player('Johnson', '12', 'defense', 1),
+      new Player('Krasner', '41', 'defense', 1),
+      new Player('Berger', '4', 'defense', 2),
+      new Player('Rotan', '40', 'defense', 2),
     ];
     this.onPlayerStatChange = this.onPlayerStatChange.bind(this);
     this.handlePlayerSelection = this.handlePlayerSelection.bind(this);
@@ -42,12 +42,11 @@ class StatEntry extends Component {
       { length: Math.ceil(arr.length / size) }, (v, i) => arr.slice(i * size, i * size + size),
     );
 
-    handlePlayerSelection = (value) => {
-      this.setState({ currentPlayer: value });
+    handlePlayerSelection = (player) => {
+      this.setState({ currentPlayer: player });
     }
 
     onPlayerStatChange = (player) => {
-      console.log(`onPlayerStatChange player = ${JSON.stringify(player)}`);
       this.setState(
         (prevState) => prevState.team.players.map((p) => (p.number === player.number ? player : p)),
       );
@@ -65,7 +64,8 @@ class StatEntry extends Component {
 
     render() {
       const { team } = this.state;
-      const offenseRows = this.chunk(team.players.filter((p) => p.position === 'offense'), 3);
+      // const offenseRows = this.chunk(team.players.filter((p) => p.position === 'offense'), 3);
+      const offenseRows = team.offenseRows();
       const defenseRows = this.chunk(team.players.filter((p) => p.position === 'defense'), 2);
       return (
         <div className="stat-entry">
@@ -77,10 +77,10 @@ class StatEntry extends Component {
                     <h3>Offense</h3>
                   </Col>
                 </Row>
-                {offenseRows.map((row) => (
-                  <Row>
+                {offenseRows.map((row, i) => (
+                  <Row key={i}>
                     {row.map((player) => (
-                      <Col>
+                      <Col key={player.number}>
                         <PlayerSelector
                           player={player}
                           statWeights={team.statWeights}
@@ -95,10 +95,10 @@ class StatEntry extends Component {
                     <h3>Defense</h3>
                   </Col>
                 </Row>
-                {defenseRows.map((row) => (
-                  <Row className="justify-content-md-center">
+                {defenseRows.map((row, i) => (
+                  <Row className="justify-content-md-center" key={i}>
                     {row.map((player) => (
-                      <Col md={{ span: 4 }}>
+                      <Col md={{ span: 4 }} key={player.number}>
                         <PlayerSelector
                           player={player}
                           statWeights={team.statWeights}
