@@ -39,6 +39,8 @@ class Player {
   handleGiveawaysChanged = (value) => {
     this.stats.giveawaysChanged(value);
   }
+
+  performance = (statWeights) => this.stats.performance(statWeights);
 }
 
 export default Player;

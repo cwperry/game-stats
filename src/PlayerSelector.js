@@ -33,8 +33,9 @@ class PlayerSelector extends Component {
 
   showPerformance = () => {
     const { player, statWeights } = this.state;
-    const performance = player.stats.performance(statWeights);
+    const performance = player.performance(statWeights);
     const iconClass = this.determineIconClass(performance);
+    // console.log(`performance = ${player.name} ${performance}`);
     if (performance > 0) {
       return <FontAwesomeIcon icon={faChevronUp} color="green" className={iconClass} />;
     } if (performance < 0) {

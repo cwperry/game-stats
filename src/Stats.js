@@ -11,6 +11,7 @@ class Stats {
   }
 
   shotsOnGoalChanged = (value) => {
+    console.log(`shotsOnGoalChanged = ${value}`);
     this.shotsOnGoal = this.statChanged(this.shotsOnGoal, value);
   }
 
@@ -47,7 +48,8 @@ class Stats {
     return (tempStat + value >= 0) ? tempStat + value : tempStat;
   }
 
-  performance = (statWeights) => this.shotsOnGoal * statWeights.shotsOnGoal
+  performance = (statWeights) => {
+    const performance = this.shotsOnGoal * statWeights.shotsOnGoal
       + this.missedShots * statWeights.missedShots
       + this.goalsFor * statWeights.goalsFor
       + this.goalsAgainst * statWeights.goalsAgainst
@@ -55,6 +57,9 @@ class Stats {
       + this.hesitations * statWeights.hesitations
       + this.takeaways * statWeights.takeaways
       + this.giveaways * statWeights.giveaways;
+    console.log(`stats.performance = ${performance}`);
+    return performance;
+  }
 }
 
 export default Stats;
