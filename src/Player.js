@@ -6,7 +6,7 @@ class Player {
     this.number = number;
     this.position = position;
     this.stats = new Stats();
-  } 
+  }
 
   handleShotsChanged = (value) => {
     this.stats.shotsOnGoalChanged(value);
