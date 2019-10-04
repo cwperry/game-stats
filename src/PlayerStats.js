@@ -76,7 +76,6 @@ class PlayerStats extends Component {
 
   render() {
     const { player } = this.props;
-    console.log(`player = ${player.name}`);
     return (
       <div className="player-stats">
         <Container fluid="true">
