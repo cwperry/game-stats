@@ -2,8 +2,11 @@ parser: babel-eslint
 env:
   browser: true
   es6: true
+  jest/globals: true
 extends:
   - airbnb
+  - plugin:jest/recommended
+  - plugin:jest/style
 globals:
   Atomics: readonly
   SharedArrayBuffer: readonly
@@ -14,6 +17,7 @@ parserOptions:
   sourceType: module
 plugins:
   - react
+  - jest
 rules: {
   "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
 }
